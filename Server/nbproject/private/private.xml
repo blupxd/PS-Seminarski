@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group name="hello">
+            <file>file:/C:/Users/matij/OneDrive/Desktop/PS%20Seminarski/Server/src/server.properties</file>
+            <file>file:/C:/Users/matij/OneDrive/Desktop/PS%20Seminarski/Server/src/dbb/DBBroker.java</file>
+            <file>file:/C:/Users/matij/OneDrive/Desktop/PS%20Seminarski/Server/src/dbb/FizickoLiceDBB.java</file>
+            <file>file:/C:/Users/matij/OneDrive/Desktop/PS%20Seminarski/Server/src/forms/ServerForm.java</file>
+            <file>file:/C:/Users/matij/OneDrive/Desktop/PS%20Seminarski/Server/src/controllers/ServerController.java</file>
+            <file>file:/C:/Users/matij/OneDrive/Desktop/PS%20Seminarski/Server/src/controllers/OperationHandler.java</file>
+            <file>file:/C:/Users/matij/OneDrive/Desktop/PS%20Seminarski/Server/src/threads/ClientHandler.java</file>
+            <file>file:/C:/Users/matij/OneDrive/Desktop/PS%20Seminarski/Server/src/threads/ServerHandler.java</file>
+            <file>file:/C:/Users/matij/OneDrive/Desktop/PS%20Seminarski/Server/src/dbb/KlijentDBB.java</file>
+            <file>file:/C:/Users/matij/OneDrive/Desktop/PS%20Seminarski/Server/src/dbb/PravnoLiceDBB.java</file>
+            <file>file:/C:/Users/matij/OneDrive/Desktop/PS%20Seminarski/Server/src/dbb/RadnikDBB.java</file>
+            <file>file:/C:/Users/matij/OneDrive/Desktop/PS%20Seminarski/Server/src/dbb/StrucnaSpremaDBB.java</file>
+            <file>file:/C:/Users/matij/OneDrive/Desktop/PS%20Seminarski/Server/src/dbb/UgovorDBB.java</file>
+            <file>file:/C:/Users/matij/OneDrive/Desktop/PS%20Seminarski/Server/src/dbb/DBRepository.java</file>
+            <file>file:/C:/Users/matij/OneDrive/Desktop/PS%20Seminarski/Server/src/dbb/GenericRepository.java</file>
+            <file>file:/C:/Users/matij/OneDrive/Desktop/PS%20Seminarski/Server/src/controllers/ApstraktnaGenerickaOperacija.java</file>
+        </group>
+    </open-files>
+</project-private>

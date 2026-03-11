@@ -1,0 +1,235 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ */
+package forms;
+
+import models.Radnik;
+
+/**
+ *
+ * @author matij
+ */
+public class MainForm extends javax.swing.JFrame {
+
+    private Radnik radnik;
+    
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(MainForm.class.getName());
+
+    /**
+     * Creates new form MainForm
+     */
+    public MainForm() {
+        this(null);
+    }
+
+    public MainForm(Radnik radnik) {
+        initComponents();
+        this.radnik = radnik;
+        setExtendedState(MAXIMIZED_BOTH);
+        setLocationRelativeTo(null);
+        if (radnik != null) {
+            lblStatus.setText("Ulogovani korisnik: " + radnik.getIme() + " " + radnik.getPrezime());
+        }
+        initMenuItems();
+        initUI();
+    }
+
+    private void btnNoviUgovorActionPerformed(java.awt.event.ActionEvent evt) {
+        new UgovorForm(radnik).setVisible(true);
+    }
+
+    private void initUI() {
+        getContentPane().setLayout(new java.awt.BorderLayout());
+
+        // --- Header ---
+        javax.swing.JPanel header = new javax.swing.JPanel(new java.awt.BorderLayout());
+        header.setBackground(new java.awt.Color(26, 74, 122));
+        header.setBorder(javax.swing.BorderFactory.createEmptyBorder(18, 30, 18, 30));
+
+        javax.swing.JLabel lblTitl = new javax.swing.JLabel("Iznajmljivanje konzola");
+        lblTitl.setFont(new java.awt.Font("Segoe UI", java.awt.Font.BOLD, 26));
+        lblTitl.setForeground(java.awt.Color.WHITE);
+        header.add(lblTitl, java.awt.BorderLayout.WEST);
+
+        lblStatus.setFont(new java.awt.Font("Segoe UI", java.awt.Font.PLAIN, 13));
+        lblStatus.setForeground(new java.awt.Color(180, 210, 240));
+        header.add(lblStatus, java.awt.BorderLayout.EAST);
+
+        getContentPane().add(header, java.awt.BorderLayout.NORTH);
+
+        // --- Dashboard grid ---
+        javax.swing.JPanel grid = new javax.swing.JPanel(new java.awt.GridLayout(2, 4, 20, 20));
+        grid.setBackground(new java.awt.Color(236, 241, 247));
+        grid.setBorder(javax.swing.BorderFactory.createEmptyBorder(40, 50, 40, 50));
+
+        grid.add(kartice("Ugovor",        "📄", new java.awt.Color(41, 128, 185),  e -> new UgovorForm(radnik).setVisible(true)));
+        grid.add(kartice("Radnik",         "👷", new java.awt.Color(39, 174, 96),   e -> new RadnikForm(radnik).setVisible(true)));
+        grid.add(kartice("Klijent",        "🏢", new java.awt.Color(142, 68, 173),  e -> new KlijentForm(radnik).setVisible(true)));
+        grid.add(kartice("Pravno lice",    "⚖️",  new java.awt.Color(211, 84, 0),    e -> new PravnoLiceForm(radnik).setVisible(true)));
+        grid.add(kartice("Fizičko lice",   "👤", new java.awt.Color(22, 160, 133),  e -> new FizickoLiceForm(radnik).setVisible(true)));
+        grid.add(kartice("Oprema",         "🎮", new java.awt.Color(192, 57, 43),   e -> new OpremaForm(radnik).setVisible(true)));
+        grid.add(kartice("Stručna sprema", "🎓", new java.awt.Color(52, 73, 94),    e -> new StrucnaSpremaForm(radnik).setVisible(true)));
+        grid.add(kartice("O programu",     "ℹ️",  new java.awt.Color(127, 140, 141), e -> javax.swing.JOptionPane.showMessageDialog(this,
+            "Softverski sistem za iznajmljivanje konzola\nProjektovanje softvera 2025\nMatija Stefanović - 2023-0257",
+            "O programu", javax.swing.JOptionPane.INFORMATION_MESSAGE)));
+
+        getContentPane().add(grid, java.awt.BorderLayout.CENTER);
+    }
+
+    private javax.swing.JButton kartice(String naziv, String ikona, java.awt.Color boja,
+                                         java.awt.event.ActionListener akc) {
+        javax.swing.JButton btn = new javax.swing.JButton(
+            "<html><center><span style='font-size:28pt;'>" + ikona + "</span>"
+            + "<br><br><b>" + naziv + "</b></center></html>");
+        btn.setBackground(boja);
+        btn.setForeground(java.awt.Color.WHITE);
+        btn.setFont(new java.awt.Font("Segoe UI", java.awt.Font.PLAIN, 14));
+        btn.setFocusPainted(false);
+        btn.setBorderPainted(false);
+        btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn.addActionListener(akc);
+        btn.addMouseListener(new java.awt.event.MouseAdapter() {
+            java.awt.Color orig = boja;
+            @Override public void mouseEntered(java.awt.event.MouseEvent e) {
+                btn.setBackground(boja.brighter());
+            }
+            @Override public void mouseExited(java.awt.event.MouseEvent e) {
+                btn.setBackground(orig);
+            }
+        });
+        return btn;
+    }
+
+    /**
+     * This method is called from within the constructor to initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is always
+     * regenerated by the Form Editor.
+     */
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        lblStatus = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
+        jMenu3 = new javax.swing.JMenu();
+        jMenu4 = new javax.swing.JMenu();
+        jMenu5 = new javax.swing.JMenu();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        lblStatus.setText("Ulogovani korisnik:");
+
+        jMenu1.setText("Dokumenti");
+        jMenuBar1.add(jMenu1);
+
+        jMenu2.setText("Pruzalac usluge");
+        jMenuBar1.add(jMenu2);
+
+        jMenu3.setText("Primalac usluge");
+        jMenuBar1.add(jMenu3);
+
+        jMenu4.setText("Šifarnici");
+        jMenuBar1.add(jMenu4);
+
+        jMenu5.setText("O programu");
+        jMenuBar1.add(jMenu5);
+
+        setJMenuBar(jMenuBar1);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblStatus)
+                .addContainerGap(305, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(255, Short.MAX_VALUE)
+                .addComponent(lblStatus)
+                .addContainerGap())
+        );
+
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
+            logger.log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(() -> new MainForm().setVisible(true));
+    }
+
+    private void initMenuItems() {
+        javax.swing.JMenuItem miUgovor = new javax.swing.JMenuItem("Ugovor");
+        miUgovor.addActionListener(e -> new UgovorForm(radnik).setVisible(true));
+        jMenu1.add(miUgovor);
+
+        javax.swing.JMenuItem miRadnik = new javax.swing.JMenuItem("Radnik");
+        miRadnik.addActionListener(e -> new RadnikForm(radnik).setVisible(true));
+        jMenu2.add(miRadnik);
+
+        javax.swing.JMenuItem miKlijent = new javax.swing.JMenuItem("Klijent");
+        miKlijent.addActionListener(e -> new KlijentForm(radnik).setVisible(true));
+        jMenu3.add(miKlijent);
+
+        javax.swing.JMenuItem miPravnoLice = new javax.swing.JMenuItem("Pravno lice");
+        miPravnoLice.addActionListener(e -> new PravnoLiceForm(radnik).setVisible(true));
+        jMenu3.add(miPravnoLice);
+
+        javax.swing.JMenuItem miFizickoLice = new javax.swing.JMenuItem("Fizičko lice");
+        miFizickoLice.addActionListener(e -> new FizickoLiceForm(radnik).setVisible(true));
+        jMenu3.add(miFizickoLice);
+
+        javax.swing.JMenuItem miOprema = new javax.swing.JMenuItem("Oprema");
+        miOprema.addActionListener(e -> new OpremaForm(radnik).setVisible(true));
+        jMenu4.add(miOprema);
+
+        javax.swing.JMenuItem miSS = new javax.swing.JMenuItem("Stručna sprema");
+        miSS.addActionListener(e -> new StrucnaSpremaForm(radnik).setVisible(true));
+        jMenu4.add(miSS);
+
+       
+        javax.swing.JMenuItem miOProgramu = new javax.swing.JMenuItem("O programu");
+        miOProgramu.addActionListener(e -> javax.swing.JOptionPane.showMessageDialog(this,
+            "Softverski sistem za iznajmljivanje konzola\n" +
+            "Projektovanje softvera 2025\n" +
+            "Matija Stefanović - 2023-0257",
+            "O programu", javax.swing.JOptionPane.INFORMATION_MESSAGE));
+        jMenu5.add(miOProgramu);
+    }
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu5;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JLabel lblStatus;
+    // End of variables declaration//GEN-END:variables
+}
