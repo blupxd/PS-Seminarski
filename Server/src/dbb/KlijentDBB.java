@@ -6,52 +6,36 @@ import java.util.ArrayList;
 import java.util.List;
 import models.Klijent;
 
-public class KlijentDBB {
+public class KlijentDBB extends GenericRepository<Klijent> {
 
     private final DBBroker db = DBBroker.getInstance();
 
     public int kreirajKlijent(Klijent k) throws Exception {
-        String sql = "INSERT INTO Klijent (adresa, telefon, email) VALUES (?,?,?)";
-        PreparedStatement ps = db.prepareStatementWithKeys(sql);
-        ps.setString(1, k.getAdresa());
-        ps.setString(2, k.getTelefon());
-        ps.setString(3, k.getEmail());
-        ps.executeUpdate();
-        ResultSet keys = ps.getGeneratedKeys();
-        if (keys.next()) return keys.getInt(1);
-        return -1;
+        return super.create(k).getIdKlijent();
     }
 
     public void promeniKlijent(Klijent k) throws Exception {
-        String sql = "UPDATE Klijent SET adresa=?, telefon=?, email=? WHERE idKlijent=?";
-        PreparedStatement ps = db.prepareStatement(sql);
-        ps.setString(1, k.getAdresa());
-        ps.setString(2, k.getTelefon());
-        ps.setString(3, k.getEmail());
-        ps.setInt(4, k.getIdKlijent());
-        ps.executeUpdate();
+        super.update(k);
     }
 
     public void obrisiKlijent(int idKlijent) throws Exception {
-        String sql = "DELETE FROM Klijent WHERE idKlijent = ?";
-        PreparedStatement ps = db.prepareStatement(sql);
-        ps.setInt(1, idKlijent);
-        ps.executeUpdate();
+        Klijent k = new Klijent();
+        k.setIdKlijent(idKlijent);
+        super.delete(k);
     }
 
     public Klijent pretraziKlijent(int idKlijent) throws Exception {
-        String sql = "SELECT * FROM Klijent WHERE idKlijent = ?";
-        PreparedStatement ps = db.prepareStatement(sql);
-        ps.setInt(1, idKlijent);
-        ResultSet rs = ps.executeQuery();
-        if (rs.next()) return mapKlijent(rs);
-        return null;
+        Klijent k = new Klijent();
+        k.setIdKlijent(idKlijent);
+        return super.getByPK(k);
     }
 
     public List<Klijent> vratiSveKlijente() throws Exception {
         ResultSet rs = db.executeQuery("SELECT * FROM Klijent ORDER BY idKlijent");
         List<Klijent> lista = new ArrayList<>();
-        while (rs.next()) lista.add(mapKlijent(rs));
+        while (rs.next()) {
+            lista.add((Klijent) new Klijent().fromResultSet(rs));
+        }
         return lista;
     }
 
@@ -74,16 +58,7 @@ public class KlijentDBB {
         for (int i = 0; i < params.size(); i++) ps.setObject(i + 1, params.get(i));
         ResultSet rs = ps.executeQuery();
         List<Klijent> lista = new ArrayList<>();
-        while (rs.next()) lista.add(mapKlijent(rs));
+        while (rs.next()) lista.add((Klijent) new Klijent().fromResultSet(rs));
         return lista;
-    }
-
-    public Klijent mapKlijent(ResultSet rs) throws Exception {
-        return new Klijent(
-            rs.getInt("idKlijent"),
-            rs.getString("adresa"),
-            rs.getString("telefon"),
-            rs.getString("email")
-        );
     }
 }

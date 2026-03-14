@@ -20,12 +20,10 @@ public class KlijentUpravljanjeForm extends javax.swing.JFrame {
     private Klijent klijent; // null = novi, inace izmena
     private boolean sacuvano = false;
 
-    /** Novi klijent */
     public KlijentUpravljanjeForm() {
         this(null);
     }
 
-    /** Novi klijent (null) ili izmena postojeceg */
     public KlijentUpravljanjeForm(Klijent klijent) {
         this.klijent = klijent;
         initComponents();

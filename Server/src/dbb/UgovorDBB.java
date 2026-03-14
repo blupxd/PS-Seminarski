@@ -11,46 +11,17 @@ import models.Radnik;
 import models.StavkaUgovora;
 import models.Ugovor;
 
-public class UgovorDBB {
+public class UgovorDBB extends GenericRepository<Ugovor> {
 
     private final DBBroker db = DBBroker.getInstance();
 
     public int kreirajUgovor(Ugovor u) throws Exception {
-        String sql = "INSERT INTO Ugovor (datumIzdavanja, popust, datumVracanjaPlaniran, "
-                   + "datumVracanjaStvarni, ukupanIznos, status, idRadnik, idKlijent) "
-                   + "VALUES (?,?,?,?,?,?,?,?)";
-        PreparedStatement ps = db.prepareStatementWithKeys(sql);
-        ps.setDate(1, new java.sql.Date(u.getDatumIzdavanja().getTime()));
-        ps.setInt(2, u.getPopust());
-        ps.setDate(3, new java.sql.Date(u.getDatumVracanjaPlaniran().getTime()));
-        ps.setDate(4, u.getDatumVracanjaStvarni() != null
-                ? new java.sql.Date(u.getDatumVracanjaStvarni().getTime()) : null);
-        ps.setDouble(5, u.getUkupanIznos());
-        ps.setString(6, u.getStatus() != null ? u.getStatus() : Ugovor.STATUS_AKTIVAN);
-        ps.setInt(7, u.getIdRadnik());
-        ps.setInt(8, u.getIdKlijent());
-        ps.executeUpdate();
-        ResultSet keys = ps.getGeneratedKeys();
-        if (keys.next()) return keys.getInt(1);
-        return -1;
+        if (u.getStatus() == null) u.setStatus(Ugovor.STATUS_AKTIVAN);
+        return super.create(u).getIdUgovor();
     }
 
     public void promeniUgovor(Ugovor u) throws Exception {
-        String sql = "UPDATE Ugovor SET datumIzdavanja=?, popust=?, datumVracanjaPlaniran=?, "
-                   + "datumVracanjaStvarni=?, ukupanIznos=?, status=?, idRadnik=?, idKlijent=? "
-                   + "WHERE idUgovor=?";
-        PreparedStatement ps = db.prepareStatement(sql);
-        ps.setDate(1, new java.sql.Date(u.getDatumIzdavanja().getTime()));
-        ps.setInt(2, u.getPopust());
-        ps.setDate(3, new java.sql.Date(u.getDatumVracanjaPlaniran().getTime()));
-        ps.setDate(4, u.getDatumVracanjaStvarni() != null
-                ? new java.sql.Date(u.getDatumVracanjaStvarni().getTime()) : null);
-        ps.setDouble(5, u.getUkupanIznos());
-        ps.setString(6, u.getStatus());
-        ps.setInt(7, u.getIdRadnik());
-        ps.setInt(8, u.getIdKlijent());
-        ps.setInt(9, u.getIdUgovor());
-        ps.executeUpdate();
+        super.update(u);
     }
 
     public Ugovor pretraziUgovor(int idUgovor) throws Exception {

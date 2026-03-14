@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import models.FizickoLice;
 
-public class FizickoLiceDBB {
+public class FizickoLiceDBB extends GenericRepository<models.FizickoLice> {
 
     private final DBBroker db = DBBroker.getInstance();
 

@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import models.PravnoLice;
 
-public class PravnoLiceDBB {
+public class PravnoLiceDBB extends GenericRepository<PravnoLice> {
 
     private final DBBroker db = DBBroker.getInstance();
 

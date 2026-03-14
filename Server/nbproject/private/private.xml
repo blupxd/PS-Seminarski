@@ -2,25 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group name="hello">
-            <file>file:/C:/Users/matij/OneDrive/Desktop/xd/Server/src/controllers/OperationHandler.java</file>
-            <file>file:/C:/Users/matij/OneDrive/Desktop/xd/Server/src/so/auth/SoPrijaviRadnik.java</file>
-            <file>file:/C:/Users/matij/OneDrive/Desktop/xd/Server/src/so/radnik/SoKreirajRadnik.java</file>
-            <file>file:/C:/Users/matij/OneDrive/Desktop/xd/Server/src/so/radnik/SoObrisiRadnik.java</file>
-            <file>file:/C:/Users/matij/OneDrive/Desktop/xd/Server/src/controllers/ApstraktnaGenerickaOperacija.java</file>
-            <file>file:/C:/Users/matij/OneDrive/Desktop/xd/Server/src/so/pravnolice/SoKreirajPravnoLice.java</file>
-            <file>file:/C:/Users/matij/OneDrive/Desktop/xd/Server/src/so/pravnolice/SoObrisiPravnoLice.java</file>
-            <file>file:/C:/Users/matij/OneDrive/Desktop/xd/Server/src/so/pravnolice/SoPretraziPravnoLice.java</file>
-            <file>file:/C:/Users/matij/OneDrive/Desktop/xd/Server/src/so/pravnolice/SoPromeniPravnoLice.java</file>
-            <file>file:/C:/Users/matij/OneDrive/Desktop/xd/Server/src/so/pravnolice/SoUbaciPravnoLice.java</file>
-            <file>file:/C:/Users/matij/OneDrive/Desktop/xd/Server/src/so/pravnolice/SoVratiListuPravnoLice.java</file>
-            <file>file:/C:/Users/matij/OneDrive/Desktop/xd/Server/src/so/klijent/SoKreirajKlijent.java</file>
-            <file>file:/C:/Users/matij/OneDrive/Desktop/xd/Server/src/dbb/PrSsDBB.java</file>
-            <file>file:/C:/Users/matij/OneDrive/Desktop/xd/Server/src/so/fizickolice/SoObrisiFizickoLice.java</file>
-            <file>file:/C:/Users/matij/OneDrive/Desktop/xd/Server/src/dbb/GenericRepository.java</file>
-            <file>file:/C:/Users/matij/OneDrive/Desktop/xd/Server/src/dbb/DBRepository.java</file>
-            <file>file:/C:/Users/matij/OneDrive/Desktop/xd/Server/src/controllers/ServerController.java</file>
-            <file>file:/C:/Users/matij/OneDrive/Desktop/xd/Server/src/dbb/UgovorDBB.java</file>
-        </group>
+        <group name="hello"/>
     </open-files>
 </project-private>

@@ -40,7 +40,6 @@ public class FizickoLiceForm extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         ucitajKlijente();
         cmbKlijent.addActionListener(evt -> {
-            // Ako je red u tabeli izabran (edit mode), ne mijenjamo vidljivost polja
             if (tblRadnici.getSelectedRow() >= 0) return;
             boolean noviKlijent = (cmbKlijent.getSelectedIndex() == 0);
             txtAdresa.setVisible(noviKlijent);
@@ -79,7 +78,6 @@ public class FizickoLiceForm extends javax.swing.JFrame {
             tableModel.setLista(lista);
         } catch (Exception e) {
             tableModel.setLista(new ArrayList<>());
-            // Prazna lista nije greška — prikaži poruku samo ako nije "not found"
             String msg = e.getMessage();
             if (msg == null || !msg.toLowerCase().contains("ne može da nađe")) {
                 javax.swing.JOptionPane.showMessageDialog(this, "Greška pri učitavanju: " + msg);
@@ -95,14 +93,12 @@ public class FizickoLiceForm extends javax.swing.JFrame {
         txtPrezime.setText(fl.getPrezime());
         txtJMBG.setText(fl.getJMBG());
         txtBrojLicneKarte.setText(fl.getBrojLicneKarte());
-        // Sva polja vidljiva za editovanje
         txtAdresa.setVisible(true);
         txtTelefon.setVisible(true);
         txtEmail.setVisible(true);
         txtAdresa.setText(fl.getAdresa() != null ? fl.getAdresa() : "");
         txtTelefon.setText(fl.getTelefon() != null ? fl.getTelefon() : "");
         txtEmail.setText(fl.getEmail() != null ? fl.getEmail() : "");
-        // Postavi cmbKlijent (ActionListener nece sakriti polja jer je red izabran)
         int cmbIdx = 0;
         for (int i = 0; i < listaKlijenata.size(); i++) {
             if (listaKlijenata.get(i).getIdKlijent() == fl.getIdKlijent()) {

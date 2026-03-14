@@ -71,7 +71,7 @@ public class MainForm extends javax.swing.JFrame {
         grid.add(kartice("Oprema",         "🎮", new java.awt.Color(192, 57, 43),   e -> new OpremaForm(radnik).setVisible(true)));
         grid.add(kartice("Stručna sprema", "🎓", new java.awt.Color(52, 73, 94),    e -> new StrucnaSpremaForm(radnik).setVisible(true)));
         grid.add(kartice("O programu",     "ℹ️",  new java.awt.Color(127, 140, 141), e -> javax.swing.JOptionPane.showMessageDialog(this,
-            "Softverski sistem za iznajmljivanje konzola\nProjektovanje softvera 2025\nMatija Stefanović - 2023-0257",
+            "Softverski sistem za iznajmljivanje konzola\nProjektovanje softvera 2026\nMatija Stefanović - 2023-0257",
             "O programu", javax.swing.JOptionPane.INFORMATION_MESSAGE)));
 
         getContentPane().add(grid, java.awt.BorderLayout.CENTER);
