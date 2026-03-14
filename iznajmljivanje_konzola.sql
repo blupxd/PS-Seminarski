@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 11, 2026 at 01:30 PM
+-- Generation Time: Mar 14, 2026 at 01:29 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -40,7 +40,8 @@ CREATE TABLE `fizickolice` (
 --
 
 INSERT INTO `fizickolice` (`idKlijent`, `ime`, `prezime`, `JMBG`, `brojLicneKarte`) VALUES
-(14, 'Stefanovic', 'Matija', '1002005076026', '1111111111');
+(14, 'Stefanovic', 'Matija', '1002005076026', '1111111111'),
+(16, 'Ristic', 'Veljko', '2401005762016', '141111414');
 
 -- --------------------------------------------------------
 
@@ -63,7 +64,8 @@ INSERT INTO `klijent` (`idKlijent`, `adresa`, `telefon`, `email`) VALUES
 (1, 'Milosa Obilica 24', '0211599730', 'izmenjen@gmail.comm'),
 (10, 'Milaaosa Obilica 24', '0211599730', 'test@gmail.com'),
 (14, 'Milosa Obrenovica 32', '0611599730', 'matija@gmail.com'),
-(15, 'Adresa 123', '01101010', 'testemails@gmail.com');
+(15, 'Adresa 123', '01101010', 'testemails@gmail.com'),
+(16, 'Kneza Lazara 14', '0645706676', 'velja@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -113,7 +115,8 @@ CREATE TABLE `pravnolice` (
 
 INSERT INTO `pravnolice` (`idKlijent`, `nazivFirme`, `PIB`, `maticniBroj`) VALUES
 (1, 'Nova firma', '123456', '123456'),
-(10, 'anova firma1', '121234', '121234');
+(10, 'anova firma1', '121234', '121234'),
+(16, 'NajNaj', '1111111111', '0001133');
 
 -- --------------------------------------------------------
 
@@ -148,7 +151,8 @@ CREATE TABLE `radnik` (
 
 INSERT INTO `radnik` (`idRadnik`, `ime`, `prezime`, `korisnickoIme`, `sifra`, `email`) VALUES
 (1, 'Admin', 'Admin', 'admin', 'admin321', 'admin@konzole.rs'),
-(2, 'Rajković', 'Boban', 'boban', '123', 'boban@gmail.com');
+(2, 'Rajković', 'Boban', 'boban', '123', 'boban@gmail.com'),
+(3, 'Brat', 'Veljko', 'velja', '123', 'velja@gmail.com');
 
 -- --------------------------------------------------------
 
